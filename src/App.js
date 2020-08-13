@@ -24,13 +24,9 @@ export default function App() {
   }, [flipped])
 
   const handleClick = (id) => {
-    // блокируем все карты при клике на одну
     setDisabled(true);
-    // если мы кликнули на первую карту
     if (flipped.length === 0) {
-      // теперь в массиве flipped его клон и id шник первой карты
       setFlipped([...flipped, id]);
-      // разблокируем поле
       setDisabled(false);
     } else {
       if (sameCardClicked(id)) return;

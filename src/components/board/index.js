@@ -4,7 +4,14 @@ import "./board.css";
 
 import Card from "../card";
 
-const Board = ({ handleClick, flipped, cards, dimension, disabled, solved }) => {
+const Board = ({
+  handleClick,
+  flipped,
+  cards,
+  dimension,
+  disabled,
+  solved
+}) => {
   return (
     <div className="board-wrapper">
       <div className="board">
@@ -29,9 +36,8 @@ const Board = ({ handleClick, flipped, cards, dimension, disabled, solved }) => 
 };
 
 Board.propTypes = {
-  flipped: PropTypes.arrayOf(PropTypes.bool).isRequired,
   solved: PropTypes.arrayOf(PropTypes.number).isRequired,
-  // flipped: PropTypes.bool.isRequired,
+  flipped: PropTypes.arrayOf(PropTypes.number).isRequired,
   dimension: PropTypes.number.isRequired,
   disabled: PropTypes.bool.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
