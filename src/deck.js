@@ -21,21 +21,14 @@ const initializeDeck = () => {
     "six",
     "seven",
     "eight",
-    // "nine"
   ].reduce((acc, type) => {
     acc.push({
       id: id++,
       type,
-      back: `/img/back.png`,
-      front: `/img/1.png`,
-      width: 100
     });
     acc.push({
       id: id++,
       type,
-      back: `/img/back.png`,
-      front: `/img/1.png`,
-      width: 100
     });
     return acc;
   }, []);

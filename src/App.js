@@ -29,7 +29,7 @@ export default function App() {
       setFlipped([...flipped, id]);
       setDisabled(false);
     } else {
-      if (sameCardClicked(id)) return;
+      if (sameCardClicked(id)) return setDisabled(false);
       setFlipped([flipped[0], id]);
       if(isMatch(id)) {
         setSolved([...solved, flipped[0], id])
@@ -46,7 +46,7 @@ export default function App() {
   }
 
   const sameCardClicked = (id) => {
-    flipped.includes(id);
+    return flipped.includes(id);
   };
 
   const isMatch = (id) => {

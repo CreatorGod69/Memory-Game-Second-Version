@@ -8,7 +8,6 @@ const Card = ({ handleClick, flipped, id, width, type, disabled, solved }) => {
         src={flipped || solved ? `/img/${type}.png` : `/img/back.png`}
         width={width}
         onClick={() => (disabled ? null : handleClick(id))}
-        // flipped={flipped}
         alt={""}
       />
     </div>
