@@ -4,7 +4,7 @@ import "./board.css";
 
 import Card from "../card";
 
-const Board = ({ handleClick, flipped, cards, dimension, disabled }) => {
+const Board = ({ handleClick, flipped, cards, dimension, disabled, solved }) => {
   return (
     <div className="board-wrapper">
       <div className="board">
@@ -14,12 +14,13 @@ const Board = ({ handleClick, flipped, cards, dimension, disabled }) => {
             key={card.id}
             id={card.id}
             type={card.type}
+            solved={solved.includes(card.id)}
             width={dimension / 4.5}
             back={card.back}
             front={card.front}
             flipped={flipped.includes(card.id)}
             handleClick={handleClick}
-            disabled={disabled}
+            disabled={disabled || solved.includes(card.id)}
           />
         ))}
       </div>
@@ -28,8 +29,9 @@ const Board = ({ handleClick, flipped, cards, dimension, disabled }) => {
 };
 
 Board.propTypes = {
-  // flipped: PropTypes.arrayOf(PropTypes.bool).isRequired,
-  flipped: PropTypes.bool.isRequired,
+  flipped: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  solved: PropTypes.arrayOf(PropTypes.number).isRequired,
+  // flipped: PropTypes.bool.isRequired,
   dimension: PropTypes.number.isRequired,
   disabled: PropTypes.bool.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
